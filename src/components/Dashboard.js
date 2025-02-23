@@ -53,7 +53,7 @@ const Dashboard = ({ setLoggedIn }) => {
     }
   
     try {
-      const response = await axios.get(`http://localhost:5000/api/get_calendar?user_email=${userEmail}`);
+      const response = await axios.get(`https://calendar-api-backend.onrender.com/api/get_calendar?user_email=${userEmail}`);
       if (response.data && response.data.calendarUrl) {
         setUserCalendarUrl(response.data.calendarUrl);
       }
@@ -65,7 +65,7 @@ const Dashboard = ({ setLoggedIn }) => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/events");
+      const response = await axios.get("https://calendar-api-backend.onrender.com/api/events");
       setEvents(response.data);
     } catch (error) {
       console.error("Error fetching events:", error);
@@ -81,7 +81,7 @@ const Dashboard = ({ setLoggedIn }) => {
   const handleAddCalendar = async () => {
     if (calendarUrl) {
       try {
-        await axios.post("http://localhost:5000/api/add_calendar", {
+        await axios.post("https://calendar-api-backend.onrender.com/api/add_calendar", {
           calendar_url: calendarUrl,
           user_email: localStorage.getItem("id"),
         });
