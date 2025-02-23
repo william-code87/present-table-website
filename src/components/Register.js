@@ -33,7 +33,7 @@ const Register = ({ setRegisterMode }) => {
 
     try {
       const lowerCaseId = id.toLowerCase();
-      await axios.post("http://localhost:5000/api/register", { id: lowerCaseId, name, password });
+      await axios.post("https://calendar-api-backend.onrender.com/api/register", { id: lowerCaseId, name, password });
       alert("Registration successful! You can now log in.");
       setRegisterMode(false);
     } catch (error) {
