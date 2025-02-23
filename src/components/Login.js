@@ -12,7 +12,7 @@ const Login = ({ setLoggedIn, setRegisterMode }) => {
 
     try {
       const lowerCaseId = id.toLowerCase();
-      const response = await axios.post("http://localhost:5000/api/login", {
+      const response = await axios.post("https://calendar-api-backend.onrender.com/api/login", {
         id: lowerCaseId,
         password,
       });
